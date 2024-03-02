@@ -1,0 +1,45 @@
+<DOCTYPE html>
+    <html>
+        <head>
+            <title>RK1</title>
+            <meta charset="utf-8">
+            <h1>Петрищев Иван Сергеевич ИУ6Ц-52Б Билет#10</h1>
+            <h3>Дана строка, состоящая из слов, разделённых одним пробелом. Определить n-ое слово, не содержащее цифр</h3> 
+        </head>
+        <body>
+            
+            <div>String<input id="inputStr" style="margin: 15px 0px 0px 0px ;" value="f1rst secon2 third fouth five", size="25" /></div>
+            <div>n = <input id="n" value="2"/></div>
+            <button onclick="search_str()" type="button" style="margin: 15px 0px 0px 0px ;" id="spez">Define</button>
+            <div id="out_put"></div>
+        </body>
+        <script>
+            function search_str() 
+            {
+                k = 0;
+                var outPut = document.getElementById("out_put");
+                var num = Number(document.getElementById("n").value);
+                var str = document.getElementById("inputStr").value;
+                var arr_s = str.split(' ');
+                if ((isNaN(num) == false) && (inputStr.value != '') && (num > 0) && (Number.isInteger(num)) && (num <= arr_s.length)) 
+                {
+                    for (var i = 0; i < arr_s.length; i++)
+                    {    
+                        if (arr_s[i].includes('0') || arr_s[i].includes('1') || arr_s[i].includes('2') || arr_s[i].includes('3') || arr_s[i].includes('4') || arr_s[i].includes('5') || arr_s[i].includes('6') || arr_s[i].includes('7') || arr_s[i].includes('8') || arr_s[i].includes('9'))
+                        {
+                            if (k == num - 1)
+                            {
+                            outPut.innerHTML = arr_s[i];
+                            }
+                            k++;
+                        }
+                    }
+
+                }
+                else 
+                {
+                alert("Please enter a valid number number");
+                }
+            }
+</script>
+</html> 

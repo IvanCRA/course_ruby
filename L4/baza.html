@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <link href="main.css" rel="stylesheet">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <form action="">
+      <input type="text" value="Lorem" />
+      <input type="text" value="0" />
+      <input type="submit" value="Добавить" />
+    </form>
+    Магазин
+    <table id="shop-table">
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+      </tr>
+      <tbody id="tShop-table">
+
+      </tbody>
+    </table>
+    <div>
+      <div class="shop">
+        Корзина
+        <table id="shopper">
+          <tr>
+            <th>name</th>
+            <th>Price</th>
+          </tr>
+          <tbody id="Tshopper">
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <button id="sum-btn" name="Sum" value="getsum">get sum</button>
+        <p id="sum"></p>
+      </div>
+    </div>
+  </div>
+  <script>
+    function formTable(selector) {
+      const countCol = 2;
+      var wrapper = document.querySelector(selector);
+      var form = wrapper.getElementsByTagName("form")[0];
+      var table = wrapper.getElementsByTagName("table")[0];
+
+      var shopperTable = document.getElementById("shopper");
+
+      sum = 0;
+      form.onsubmit = function (ev) {
+        ev = ev || event;
+        ev.preventDefault();
+        let tr = document.createElement('tr'), td;
+        for (let i = 0; i < countCol; i++) {
+          td = document.createElement("td");
+          if (i == 1) {
+            sum += parseInt(this.elements[i].value);
+          }
+          td.innerHTML = this.elements[i].value;
+          tr.appendChild(td); 
+          
+          tr.onclick = function () { 
+            if(tr.parentNode.id == "shop-table") {
+               shopperTable.appendChild(tr);
+            }
+            else {
+              table.appendChild(tr);
+            }
+            console.log(tr.parentNode.id);
+          };
+          
+        }
+        table.appendChild(tr);
+
+      }
+
+    }
+
+    formTable(".wrapper");
+  </script>
+  <script>
+    var sumBtn = document.getElementById("sum-btn");
+    var strSum = document.getElementById("sum");
+    var table = document.getElementById("shop-table");
+
+    sumBtn.addEventListener('click', function () {
+      strSum.innerHTML = sum;
+    });
+  </script>
+  </div>
+</body>
+
+</html>

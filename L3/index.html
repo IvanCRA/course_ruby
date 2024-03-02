@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<s>, initial-scale=1.0">
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>Шапка</h1>
+    </div>
+    <div class="container">
+        <div>
+            <div>
+                <h3>
+                    Пример работы JS
+                </h3>
+            </div id="div_script">
+        </div>
+    </div>
+    <div>
+        <button id="startBTN">Начать</button>
+        <script>
+            var startBtn = document.getElementById('startBTN')
+            startBtn.addEventListener('click', function(){
+      var str = '';
+      function DOM_Tree(el,s) {
+        if (el=='[object Text]') return;
+        str += s +(el=='[object Text]'?el.data:el.tagName) + '<br>'; 
+        console.log(el); 
+        if (el.childNodes.length == 0 || el.tagName == 'SCRIPT') return;
+        else 
+        for (var i = 0; i<el.childNodes.length;i++) DOM_Tree(el.childNodes[i], s+'&nbsp;&nbsp;');
+      }
+      DOM_Tree(document.body,'');
+      document.write(str);
+            });
+    </script>
+    </div>
+</body>
+</html>

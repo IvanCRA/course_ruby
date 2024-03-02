@@ -1,0 +1,17 @@
+body
+{
+    background-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.div-row
+{
+   background-color: rgb(29, 209, 29);
+}
+
+.panel
+{
+    margin: auto;
+    width: 500px;
+    
+}

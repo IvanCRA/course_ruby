@@ -1,0 +1,11 @@
+.wrapper table{
+    margin-top: 10px;
+    border-collapse:collapse;
+    width: 400px;
+  }
+  .wrapper td{
+    border: 1px solid rgb(201, 105, 105);
+}
+table tr:hover td   {
+    background-color: rgba(0, 0, 0, 0.268);
+  }

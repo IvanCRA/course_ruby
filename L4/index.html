@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+    <table border="4" style="min-width: 250px;" id="shop-table">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        <tbody>
+        <tr>
+            
+        </tr>
+    </tbody>
+    </table>
+    <div style="background-color: lightgray; min-width: 350px; margin-top: 16px;">
+        <input name="Name" id="Name" />
+        <input name="Price" id="Price" />
+        <button id="add-btn">Add</button>
+    </div>
+    <script>
+        var startBtn = document.getElementById('add-btn')
+        startBtn.addEventListener('click', function(){
+            name = '';
+            price = '';
+            let addRowName ='';
+            let addRowPrice = '';
+            let addRow = '';
+            var tbodyRef = document.getElementById('shop-table').getElementsByTagName('tbody')[0];
+            
+            name = document.getElementById('Name').value; 
+            price = document.getElementById('Price').value;
+            if(name !='' && price!='') {
+                console.log(name +' - '+ price); 
+                addRowName = '<td>' + name + '</td>';
+                addRowPrice = '<td>' + price + '</td>'; 
+                addRow = '<tr>' + addRowName + addRowPrice + '</tr>';
+                tbodyRef.innerHTML += addRow; 
+            }
+        });
+        
+    </script>
+    <script>
+    
+    </script>
+</div>
+</body>
+</html>
