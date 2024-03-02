@@ -1,0 +1,25 @@
+<h1>Calc#view</h1>
+<h2>Совершенные числа</h2>
+<br/>
+<% arr = @arr %>
+<% max_arr = @max_arr %>
+<% quantity = @quantity %>
+<% unless arr.empty? %>
+<table border="2">
+<tr><th>Количество</th>
+<th>Все отрезки</th>
+<th>Самый длинный</th></tr>
+<tr><td rowspan="<%= @quantity %>"><%= @quantity %></td>
+<td><%= @arr[0] %></td>
+<td rowspan="<%= @quantity %>"><%= @max_arr %></td></tr>
+<% arr[1..arr.length].each do |x| %>
+<tr>
+<td><%= x %></td>
+</tr>
+<% end %>
+</table>
+<% else %>
+<p>В массиве нет совершенных чисел или вы ввели его
+некорректно</p>
+<% end %>
+

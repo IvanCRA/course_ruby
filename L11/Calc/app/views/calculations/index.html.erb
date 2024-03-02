@@ -1,0 +1,27 @@
+<% @calculations.each do |calculation|%>
+<div><%= calculation.source_numbers %></div>
+<%# arr ||= JSON.parse(calculation.results) %>
+<table border="2">
+    <tr>
+        <th>Количество</th>
+        <th>Все отрезки</th>
+        <th>Самый длинный</th>
+    </tr>
+
+    <tr>
+        <td rowspan="<%= calculation.results.length %>"><%= calculation.results.length %></td>
+        <td><%= calculation.results[0] %></td>
+        <td rowspan="<%= calculation.results.length %>"><%= calculation.results.max %></td>
+    </tr>
+
+    <% calculation.results[1..calculation.results.length].each do |x| %>
+    <tr>
+        <td><%= x %></td>
+        <% end %>
+    </tr>
+ 
+</table>
+<div><%= link_to 'Удалить', calculation, method: :delete %></div>
+<% end %>
+<%= link_to 'Добавить', new_calculation_path %>
+<%= link_to 'XML', calculations_result_path, :method => "get" %>

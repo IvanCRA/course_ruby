@@ -1,0 +1,21 @@
+<h1>Viewer#query_tool</h1>
+<p>Find me in app/views/viewer/query_tool.html.erb</p>
+
+<%= form_with url: '/calc/view', method: :get, data: { turbo: false }, id: 'main_form' do |form| %>
+  <%= label_tag(:url, 'Введите URL, откуда получить RSS-ку:') %>
+  <%= text_field_tag(:url, 'http://127.0.0.1:3000/calc/view.xml?number=10&source_numbers=6+28+214+28+28+28+43+35+1+6&commit=%D0%A0%D0%B5%D1%88%D0%B8%D1%82%D1%8C') %>
+  <br/>
+
+  <%= check_box_tag :xslt, '1', true %>
+  <%= label_tag('xslt', 'Задействовать XSLT') %> <br/>
+
+  <div id='radios'>
+    <%= form.radio_button(:xslt_type, 'server', checked: true) %>
+    <%= form.label(:xslt_type, 'XSLT серверный', value: 'server') %> <br/>
+    <%= form.radio_button(:xslt_type, 'client') %>
+    <%= form.label(:xslt_type, 'XSLT клиентский', value: 'client') %> <br/>
+  </div>
+
+  <br/> <br/>
+  <%= submit_tag 'Перейти к рассчётам' %>
+<% end %>

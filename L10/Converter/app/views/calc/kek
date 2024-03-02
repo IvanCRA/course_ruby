@@ -1,0 +1,24 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:template match="/">
+
+<h2>Совершенные числа</h2>
+<br/>
+<table border="2">
+<tr><th>Количество</th>
+<th>Все отрезки</th>
+<th>Самый длинный</th></tr>
+<tr><td rowspan="3"><xsl:value-of select="hash/quantity"/></td>
+<td></td>
+<td rowspan="3"></td></tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</table>
+</xsl:template>
+</xsl:stylesheet>
